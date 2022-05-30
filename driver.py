@@ -11,7 +11,7 @@ options.add_argument("User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) Apple
 
 url = "https://linkmark.ru/"
 driver = webdriver.Chrome(
-    executable_path="C:\\Users\\Arbinatrum\\PycharmProjects\\Diplom_Bychkov\\chromedriver\\chromedriver.exe",
+    executable_path="~\\chromedriver\\chromedriver.exe",
     options=options
 )
 
