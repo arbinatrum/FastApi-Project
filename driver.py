@@ -1,19 +1,23 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import requests
 import json
 from bs4 import BeautifulSoup
 
-options = webdriver.ChromeOptions()
+options = Options()
 
 options.add_argument("User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                      "Chrome/98.0.4758.141 YaBrowser/22.3.2.644 Yowser/2.5 Safari/537.36")
+options.add_argument("--no-sandbox")
+options.add_argument("--headless")
+options.add_argument("--disable-dev-shm-usage")
 
 url = "https://linkmark.ru/"
-driver = webdriver.Chrome(
-    executable_path="~\\chromedriver\\chromedriver.exe",
-    options=options
-)
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
 def write(exit_file, filename):
